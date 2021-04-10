@@ -1,0 +1,59 @@
+
+#ca{
+    display: flex;
+    justify-content: center !important;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+svg{
+    
+    color: grey;
+   
+    
+}
+
+img{
+    width: 150px !important;
+    height: 250px !important;
+    justify-content: center;
+    margin:auto;
+    
+    
+} 
+ .car{ 
+    display:flex;
+    justify-content:center;
+    margin: 10px !important;
+    align-items: center !important;
+    padding: 5px;
+    max-height: 350px;
+  
+   
+} 
+h2,.nam{
+    color: #053E4F;
+}
+h5,p{
+    color: grey;
+}
+p{
+    font-size:15px;
+    font-family: 'Times New Roman', Times, serif;
+    
+    
+
+}
+
+.metier{
+    text-align: center;
+}
+.nam{
+    display: flex;
+    justify-content:center;
+    text-align: center;
+}
+.fle1{
+    border: solid 5px grey;
+    padding: 5px;
+}
