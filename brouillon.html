@@ -18,7 +18,7 @@
     />
     <link rel="stylesheet" href="css/slick.css" />
 
-    <title>pendule</title>
+    <title>pendu</title>
   </head>
   <body>
     <div class="container">
@@ -72,6 +72,8 @@
     <script src="js/slick.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
     <script>
+
+    var motStatus = "";
       // favori FIREFOX explication stackoverflow
       $(document).ready(function () {
         let r = "";
@@ -103,26 +105,25 @@
         document.getElementById("Z").onclick = compareLetter;
       });
 
-    </script>
-    <script>
+  
       function compareLetter(){
-          let e = this.innerHTML
-          console.log(e)
-          let d = "";
-          d = document.getElementById("mot_show").innerHTML; 
-          let arrayWord = Array.from(d);
-          console.log(d)
+          let lettreDemandee = this.innerHTML
+          console.log(lettreDemandee)
+          let motAdeviner = document.getElementById("mot_show").innerHTML; 
+          let arrayWord = Array.from(motAdeviner);
+          console.log(motAdeviner)
           // console.log(arrayWord)
           let compteur = 0;
-          // JUSQUE LA ANNULE
           for(i=0;i<arrayWord.length;i++){
-            if(e==arrayWord[i]){
+            if(lettreDemandee==arrayWord[i]){
               // lettre trouve
               compteur += 1;
-              let a = arrayWord[i];
+              let lettreTrouvee = arrayWord[i];
+              motStatus[i] = lettreTrouvee;
+
               // regler ce probleme ici -- les lettres ne sont pas dans l'ordre quand on les appelle. 
-              $("#mot_test").append(a)
-              console.log(a)
+              $(".mot_hide").html(motStatus)
+              console.log(lettreTrouvee)
             } else {
               // lettre non trouve
               compteur+=0;
@@ -140,30 +141,27 @@
           
 
           
-          return e;
+          return lettreDemandee;
         }
-    </script>
+   
 
-    <script>
       // creation du mot
-      function motUnderscore(tab){
-        p = tab.length
-        o = "_";
-        b = "";
-        for(i=1;i<=p;i++){
-          b = b + o + " " ;
+      function motUnderscore(motAdeviner){
+        motAtransformer = "";
+        for(i=1;i<= motAdeviner.length;i++){
+          motAtransformer = motAtransformer + "_" ;
         }
-        return b;
+        return Array.from(motAtransformer);
       };
-    </script>
-    
-    <script>
+  
       // pour commencer le jeu, ouvrir console et appeler la fonction mot() + ch de caractère en parametre.
-      function mot(tab){
-        let word = $("#mot_show").html(tab);
+      function mot(motAdeviner){
+        motAdeviner = "VOITURE"; // TODO: remove TEST purpose 
+        let word = $("#mot_show").html(motAdeviner);
         // cache le mot
         $(word).hide();
-        $(".mot_hide").html(motUnderscore(tab));
+        motStatus = motUnderscore(motAdeviner);
+        $(".mot_hide").html(motStatus);
         
         return word;
       }
